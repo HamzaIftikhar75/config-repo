@@ -4,9 +4,8 @@ server:
 spring:
   application:
     name: employee-service
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/crud1
+  mongodb:
+    uri: mongodb://localhost:27017/crud1
 
 logging:
   file:
