@@ -5,6 +5,9 @@ spring:
   application:
     name: employee-service
 
+  mongodb:
+    uri: mongodb://localhost:27017/crud1     # This is correct for SB 4.0+
+
 logging:
   file:
     name: logs/employee-service.log
