@@ -8,7 +8,7 @@ spring:
     uri: mongodb://localhost:27017/crud1
   data:
     mongodb:
-      uri: mongodb://localhost:27017/crud1     # ← Add this as backup
+      uri: mongodb://localhost:27017/crud1
 
 logging:
   file:
