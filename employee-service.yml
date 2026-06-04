@@ -6,6 +6,9 @@ spring:
     name: employee-service
   mongodb:
     uri: mongodb://localhost:27017/crud1
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/crud1     # ← Add this as backup
 
 logging:
   file:
@@ -13,4 +16,3 @@ logging:
   level:
     org.springframework.data.mongodb: DEBUG
     org.mongodb.driver: INFO
-    org.springframework.cloud.config: DEBUG
