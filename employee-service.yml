@@ -10,3 +10,7 @@ spring:
 logging:
   file:
     name: logs/employee-service.log
+  level:
+    org.springframework.data.mongodb: DEBUG
+    org.mongodb.driver: INFO
+    org.springframework.cloud.config: DEBUG
