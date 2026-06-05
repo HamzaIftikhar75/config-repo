@@ -1,6 +1,7 @@
 spring:
   mongodb:
-    uri: mongodb://localhost:27017/crud1
+    data:
+      uri: mongodb://localhost:27017/crud1
 
 eureka:
   client:
