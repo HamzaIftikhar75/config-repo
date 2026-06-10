@@ -1,6 +1,6 @@
 spring:
-  mongodb:
-    data:
+  data:
+    mongodb:
       uri: mongodb://localhost:27017/crud1
 
 eureka:
