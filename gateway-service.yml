@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: employee-service
+              uri: http://localhost:8080
+              predicates:
+                - Path=/api/emp/**
+              filters:
+                - RewritePath=/api/emp/(?<segment>.*), /api/emp/$\{segment}
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
