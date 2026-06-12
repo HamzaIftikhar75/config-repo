@@ -12,6 +12,37 @@ spring:
                 - Path=/api/emp/**
               filters:
                 - RewritePath=/api/emp/(?<segment>.*), /api/emp/$\{segment}
+                # Rate Limiting (10 requests per 60 seconds)
+                - RequestRateLimiter=10,60
+                # Circuit Breaker
+                - CircuitBreaker=employeeCB,fallbackUri=http://localhost:8081/fallback
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+# Resilience4j Configurations
+resilience4j:
+  circuitbreaker:
+    instances:
+      employeeCB:
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 5
+        slidingWindowSize: 10
+  ratelimiter:
+    instances:
+      employeeRateLimiter:
+        limitForPeriod: 10
+        limitRefreshPeriod: 60s
+        timeoutDuration: 2s
+
 
 server:
   port: 8081
