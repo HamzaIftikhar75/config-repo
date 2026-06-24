@@ -1,13 +1,9 @@
-server:
-  port: 8082
-
-
+spring:
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8082
-
       client:
         registration:
           auth-server:
@@ -20,6 +16,8 @@ server:
           auth-provider:
             token-uri: http://localhost:8082/oauth2/token
 
+server:
+  port: 8082
 
 eureka:
   client:
@@ -29,8 +27,3 @@ eureka:
     fetch-registry: true
   instance:
     prefer-ip-address: true
-#logging:
-#  level:
-#    org.springframework.security: DEBUG
-#    org.springframework.security.oauth2: DEBUG
-#    org.springframework.security.oauth2.jwt: TRACE
